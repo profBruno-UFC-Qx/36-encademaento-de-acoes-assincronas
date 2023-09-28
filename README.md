@@ -1,8 +1,9 @@
 # Descrição
 
-Neste exercício, você vai criar uma função que recebe informações sobre um Pokémon e retorna um objeto que o representa.
+Neste exercício, você irá criar um script que dado o nome de um pokemon, ele recupera as informções de como ele pode ser encontrado.
 
-Objetivo desse exercício é praticar a criação de funções e objetos em JavaScript. 
+O objetivo desse exercício é praticar o uso de Promises encadedas, ou seja, promises que dependem de outras promises.
+
 
 **Todas as alterações devem ser feitas nos arquivos já existentes**
 
@@ -10,29 +11,17 @@ Objetivo desse exercício é praticar a criação de funções e objetos em Java
 
 ## Instruções:
 
-1. Crie uma função chamada `criarPokemon` que aceita quatro argumentos: 
-  - nome (string), tipo (string), nivel (number) e hp (number).
-2. Dentro da função, crie um objeto vazio chamado pokemon.
-3. Adicione as seguintes propriedades ao objeto pokemon com base nos argumentos recebidos:
-  - `nome`: Nome do Pokémon (string).
-  - `tipo`: Tipo do Pokémon (string).
-  - `nivel`: Nível do Pokémon (number).
-  - `hp`: Pontos de vida do Pokémon (number).
-4. Retorne o objeto pokemon preenchido.
-5. Fora da função, chame `criarPokemon()` passando valores fictícios como argumentos e armazene o objeto resultante.
-6. Exiba o objeto resultante no console.
+1. Crie uma função chamada `acharPokemon` que deve receber o nome do pokemon como argumento
+2. A função deve consultar a [PokeApi](http://pokeapi.co), mais especficamente, o endpoint *Pokemon*, por meio da seguinte URL:
 
-
-Exemplo de criação da função e chamada:
-
-```javascript
-function criarPokemon(nome, tipo, nivel, hp) {
-  ...
-}
-
-const meuPokemon = criarPokemon("Pikachu", "Elétrico", 25, 80);
-console.log(meuPokemon);
 ```
-Dica: 
-
-- Use os argumentos passados para a função para preencher as propriedades do Pokémon.
+https://pokeapi.co/api/v2/pokemon/{id or name}/
+```
+  - Utilize o nome do pokemon para customizar a URL
+3. Ao recuperar a resposta, você receberá um JSON com diversas informações, dentre elas a *location_area_enconters*
+  - Esta propriedade do JSON tem como valor uma segunda URL da que leva ao endpoint *Encouters* da PokeAPI
+  - Usando outra promise, você deve consultar essa URL e deve trazer todos os `name` localizados dentro de cada objeto contindo no vetor `names` da resposta.
+4. A função `acharPokemon` deve retorna o nome do pokemon e a lista de locais onde ele pode ser encontrado.
+5. Para mais informações sobre os endpoints necessários acesse:
+  - [https://pokeapi.co/docs/v2#pokemon](https://pokeapi.co/docs/v2#pokemon)
+  - [https://pokeapi.co/docs/v2#encounters-section](https://pokeapi.co/docs/v2#encounters-section)
