@@ -19,9 +19,9 @@ https://pokeapi.co/api/v2/pokemon/{id or name}/
 ```
   - Utilize o nome do pokemon para customizar a URL
 3. Ao recuperar a resposta, você receberá um JSON com diversas informações, dentre elas a *location_area_enconters*
-  - Esta propriedade do JSON tem como valor uma segunda URL da que leva ao endpoint *Encouters* da PokeAPI
-  - Usando outra promise, você deve consultar essa URL e deve trazer todos os `name` localizados dentro de cada objeto contindo no vetor `names` da resposta.
+  - Esta propriedade do JSON tem como valor uma segunda URL da que leva ao endpoint *Pokemon Location Areas* da PokeAPI
+  - Usando outra promise, você deve consultar essa URL e deve trazer todos os `name` localizados dentro de cada objeto contindo no vetor de resposta. A resposta sempre será um vetor.
 4. A função `acharPokemon` deve retorna o nome do pokemon e a lista de locais onde ele pode ser encontrado.
 5. Para mais informações sobre os endpoints necessários acesse:
   - [https://pokeapi.co/docs/v2#pokemon](https://pokeapi.co/docs/v2#pokemon)
-  - [https://pokeapi.co/docs/v2#encounters-section](https://pokeapi.co/docs/v2#encounters-section)
+  - [https://pokeapi.co/docs/v2#pokemon-location-areas](https://pokeapi.co/docs/v2#pokemon-location-areas)
